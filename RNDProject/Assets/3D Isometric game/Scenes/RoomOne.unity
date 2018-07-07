@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 101990378}
+  - component: {fileID: 101990379}
   m_Layer: 0
   m_Name: ParentPlayer
   m_TagString: Untagged
@@ -142,6 +143,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101990379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 101990377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf03989b40218a498bf79728f26865f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  justJump: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,8 +334,8 @@ GameObject:
   - component: {fileID: 1716086984}
   - component: {fileID: 1716086983}
   - component: {fileID: 1716086982}
-  - component: {fileID: 1716086986}
   - component: {fileID: 1716086987}
+  - component: {fileID: 1716086988}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -397,18 +410,6 @@ Transform:
   m_Father: {fileID: 101990378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1716086986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1716086981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbf03989b40218a498bf79728f26865f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  justJump: 0
 --- !u!95 &1716086987
 Animator:
   serializedVersion: 3
@@ -427,3 +428,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1716086988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716086981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8d3ec22f3967741a4a0048cdee1bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 101990377}

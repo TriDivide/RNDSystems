@@ -44,7 +44,7 @@ public class Bounce : MonoBehaviour {
 
         // Use a lerp to move the player to the end position calculated above
         if (firstInput) {
-            currentLerpTime += Time.deltaTime;
+            currentLerpTime += Time.deltaTime * 5;
             perc = currentLerpTime / lerpTime;
             gameObject.transform.position = Vector3.Lerp(startPosition, endPosition, perc);
             if (perc > 0.8) {
