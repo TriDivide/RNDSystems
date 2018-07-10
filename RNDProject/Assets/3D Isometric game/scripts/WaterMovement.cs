@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class WaterMovement : MonoBehaviour {
 
-    float lerpMovement;
-    Vector3 startPosition, endPosition;
-    float spawnTime;
-    int waterHeightPercent;
-    float perc;
-    float lerpTime;
-    float currentLerpTime;
+    float waterHeightPercent;
+    float height = 0.2F;
 
     private GameObject water;
 
@@ -18,6 +13,7 @@ public class WaterMovement : MonoBehaviour {
     // Start is called on init
     private void Start() {
         water = GameObject.Find("DummyWater");
+        gameObject.transform.localScale = new Vector3(0, 0.2F, 0);
         StartCoroutine("updateWater");
 
     }
@@ -29,35 +25,27 @@ public class WaterMovement : MonoBehaviour {
 
     IEnumerator updateWater() {
         for (; ; ) {
-            if (perc == 1) {
-                lerpTime = 1;
-                currentLerpTime = 0;
-            }
 
-            // get the position of the player before movement
-            startPosition = gameObject.transform.position;
+            print("current height percent: " + waterHeightPercent);
+            if (waterHeightPercent == 1) {
+                print("move the water");
+                waterHeightPercent = height;
 
-            // setting the position of the player after movement
-            endPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
-            // Use a lerp to move the player to the end position calculated above
-            currentLerpTime += Time.deltaTime * 5;
-            perc = currentLerpTime / lerpTime;
-            if (waterHeightPercent == 100) {
-                waterHeightPercent = 20;
                 Instantiate(water, gameObject.transform.position, gameObject.transform.rotation);
-                gameObject.transform.position = Vector3.Lerp(startPosition, endPosition, perc);
-                if (perc > 0.8) {
-                    perc = 1;
-                }
+                
+                gameObject.transform.localScale = new Vector3(0, height, 0);
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z -4);
+
             } else {
-                gameObject.transform.localScale += new Vector3(0, waterHeightPercent, 0);
-                waterHeightPercent += waterHeightPercent + 20;
-                if (waterHeightPercent <= 0.9F) {
+                print("set the height of the water");
+                gameObject.transform.localScale += new Vector3(0,  height, 0);
+                waterHeightPercent += height;
+                if (waterHeightPercent >= 0.9F) {
                     waterHeightPercent = 1;
                 }
             }
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
         }
     }
 }
