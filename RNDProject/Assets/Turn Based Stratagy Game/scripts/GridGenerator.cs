@@ -19,6 +19,7 @@ public class GridGenerator : MonoBehaviour {
 		
 	}
 
+
     void GenerateGrid() {
         float currentX = 0f;
         float currentZ = 0f;
