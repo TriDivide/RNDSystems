@@ -6,6 +6,9 @@ public class MovementManager : MonoBehaviour {
 
     private GameObject SelectedGridCell;
 
+    //private List<GameObject> SelectedUnits;
+    private GameObject SelectedUnit;
+
 
     public static MovementManager Instance;
 
@@ -23,7 +26,26 @@ public class MovementManager : MonoBehaviour {
 	void Start () {
         GetInstance();
 	}
-	
+
+    public void SelectUnit(GameObject unit) {
+        if (SelectedUnit != null) {
+            SelectedUnit.gameObject.GetComponent<MeshRenderer>().material.color = Color.grey;
+        }
+
+        SelectedUnit = unit;
+
+        SelectedUnit.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+
+    }
+
+    public bool GetIfSelected(GameObject target) {
+        return (target == SelectedUnit);
+    }
+
+
+    public GameObject GetGridCell() {
+        return SelectedGridCell ?? null;
+    }
 
     public void SelectGridCell(GameObject gridCell) {
         if (SelectedGridCell != null) {
