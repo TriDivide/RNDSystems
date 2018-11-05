@@ -28,6 +28,7 @@ public class MovementManager : MonoBehaviour {
 	}
 
     public void SelectUnit(GameObject unit) {
+        Debug.Log("Select unit");
         if (SelectedUnit != null) {
             SelectedUnit.gameObject.GetComponent<MeshRenderer>().material.color = Color.grey;
         }

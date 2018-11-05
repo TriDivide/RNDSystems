@@ -19,9 +19,9 @@ public class Unit : MonoBehaviour {
         float step = MovementSpeed * Time.deltaTime;
         SetSelectedCell();
 
-        Debug.Log(MovementManager.Instance.GetIfSelected(gameObject));
-
-        if (SelectedCell != null && MovementManager.Instance.GetIfSelected(gameObject)) {
+      //  Debug.Log(MovementManager.Instance.GetIfSelected(gameObject));
+ //&& MovementManager.Instance.GetIfSelected(gameObject)
+        if (SelectedCell != null) {
             var cellPosition = SelectedCell.transform.position;
             cellPosition = new Vector3(cellPosition.x, 1.25f, cellPosition.z);
             transform.position = Vector3.MoveTowards(transform.position, cellPosition, step);
@@ -41,6 +41,11 @@ public class Unit : MonoBehaviour {
 
     void SetSelectedCell() {
         SelectedCell = MovementManager.Instance.GetGridCell();
+    }
+
+    void OnMouseExit() {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        Debug.Log("Mouse is no longer on GameObject.");
     }
 
 }
