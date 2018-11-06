@@ -18,5 +18,17 @@ public class Tile {
 
     TileType type = TileType.Dirt;
 
-    
+    LooseObject looseObject;
+    InstalledObject installedObject;
+
+    World world;
+
+    int posX;
+    int posY;
+
+    public Tile(World world, int x, int y) {
+        this.world = world;
+        this.posX = x;
+        this.posY = y;
+    }
 }
