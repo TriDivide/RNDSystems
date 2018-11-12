@@ -283,6 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e078fe8392328478651652486a8a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassSprite: {fileID: 21300000, guid: 2f7976401ac297c459176e7f0f29b1ac, type: 3}
+  waterSprite: {fileID: 21300000, guid: 935470f1862533a48be298222f823060, type: 3}
+  pavedSprite: {fileID: 21300000, guid: 34eb4b46b89288841a77b8443443be91, type: 3}
+  dirtSprite: {fileID: 21300000, guid: 722f073a0f8c4754689e9d766de1cbfa, type: 3}
 --- !u!4 &1299704002
 Transform:
   m_ObjectHideFlags: 0

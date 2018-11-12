@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Tile {
+
+    Action<Tile> tileTypeChangedObserver;
 
     public enum TileType {
         Dirt,
@@ -26,6 +29,9 @@ public class Tile {
         set {
             type = value;
 
+            if (tileTypeChangedObserver != null) {
+                tileTypeChangedObserver(this);
+            }
         }
     }
 
@@ -51,5 +57,13 @@ public class Tile {
         this.world = world;
         this.posX = x;
         this.posY = y;
+    }
+
+    public void RegisterTileTypeChangedObserver(Action<Tile> observer) {
+        this.tileTypeChangedObserver += observer;
+    }
+
+    public void UnregisterTileTypeChangedObserver(Action<Tile> observer) {
+        this.tileTypeChangedObserver -= observer;
     }
 }

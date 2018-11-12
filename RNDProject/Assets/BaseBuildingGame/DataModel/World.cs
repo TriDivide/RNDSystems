@@ -28,7 +28,9 @@ public class World {
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                tiles[x, y] = new Tile(this, x, y);               
+
+                tiles[x, y] = new Tile(this, x, y);
+
             }
 
             Debug.Log("World created with: " + (width * height));
@@ -39,21 +41,24 @@ public class World {
     public void RandomizeTiles() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                int genNum = Random.Range(0, 3);
+                int genNum = Random.Range(0, 4);
                 if (genNum == 0) {
                     tiles[x, y].Type = Tile.TileType.Dirt;
                 }
                 else if (genNum == 1) {
                     tiles[x, y].Type = Tile.TileType.Grass;
                 }
-                else {
-                    tiles[x, y].Type = Tile.TileType.Stone;
+                else if (genNum == 2) {
+                    tiles[x, y].Type = Tile.TileType.Paved;
+                }
+                else if (genNum == 3) {
+                    tiles[x, y].Type = Tile.TileType.StillWater;
                 }
             }
         }
     }
 
-    public Tile getTileAt(int x, int y) {
+    public Tile GetTileAt(int x, int y) {
         if (x > width || x < 0) {
             Debug.LogError("Tile "+x+", "+y+" is out of range");
             return null;
